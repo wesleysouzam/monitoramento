@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento Climático</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Monitoramento de Produção Agrícola</h1>
+    <form action="/obter_clima" method="POST">
+        <input type="text" id="cidade" name="cidade" placeholder="Digite a cidade" required autocomplete="off">
+        <div id="suggestions"></div>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% if clima %}
+        <div class="weather-info">
+            <h2>Dados Climáticos para {{ clima.cidade }}</h2>
+            <p>Temperatura: {{ clima.temperatura }} °C</p>
+            <p>Descrição: {{ clima.descricao }}</p>
+            <p>Umidade: {{ clima.umidade }}%</p>
+            <p>Velocidade do vento: {{ clima.velocidade_vento }} m/s</p>
+        </div>
+
+        <div class="recommendations">
+            <h3>Recomendações de Plantio:</h3>
+            <ul>
+                {% for recomendacao in recomendacoes %}
+                    <li>{{ recomendacao }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="forecast">
+            <h3>Previsão de Dias Ideais para Plantio:</h3>
+            <ul>
+                {% for dia in dias_ideais %}
+                    <li>{{ dia }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="historical">
+            <h3>Dias Ideais para Plantio (Baseados em Dados Históricos):</h3>
+            <ul>
+                {% for dia in dias_historicos_ideais %}
+                    <li>{{ dia }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% elif message %}
+        <p class="error">{{ message }}</p>
+    {% endif %}
+
+    <script>
+        $(document).ready(function(){
+            $('#cidade').on('input', function() {
+                let query = $(this).val();
+                if (query.length > 2) {
+                    $.ajax({
+                        url: '/autocomplete',
+                        method: 'GET',
+                        data: { query: query },
+                        success: function(data) {
+                            $('#suggestions').empty();
+                            if (data.length > 0) {
+                                data.forEach(function(city) {
+                                    $('#suggestions').append('<div class="suggestion-item">' + city + '</div>');
+                                });
+                                $('.suggestion-item').on('click', function() {
+                                    $('#cidade').val($(this).text());
+                                    $('#suggestions').empty();
+                                });
+                            }
+                        }
+                    });
+                } else {
+                    $('#suggestions').empty();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f0; /* Cor de fundo que remete à natureza */
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #2d7a2b; /* Verde escuro para dar um toque de natureza */
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+input[type="text"] {
+    width: calc(100% - 40px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    color: #333;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #2d7a2b; /* Verde escuro */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #256a24; /* Um verde um pouco mais escuro para o hover */
+}
+
+#suggestions {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin-top: -10px;
+    z-index: 1;
+    position: relative;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f8f0; /* Cor de fundo ao passar o mouse sobre a sugestão */
+}
+
+/* Estilos para as informações climáticas */
+.weather-info {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.weather-info h2 {
+    color: #2d7a2b; /* Verde escuro */
+    margin-bottom: 10px;
+}
+
+.weather-info p {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+/* Estilos para as recomendações de plantio */
+.recommendations {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e8f5e9; /* Verde claro para destacar as recomendações */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations h3 {
+    color: #2d7a2b; /* Verde escuro */
+    margin-bottom: 10px;
+}
+
+.recommendations ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.recommendations li {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+/* Estilos para a previsão de dias ideais para plantio */
+.forecast {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #e8f5e9; /* Verde claro para destacar a previsão */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.forecast h3 {
+    color: #2d7a2b; /* Verde escuro */
+    margin-bottom: 10px;
+}
+
+.forecast ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.forecast li {
+    font-size: 1.1em;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #ffffff; /* Fundo branco para os itens da lista */
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #2d7a2b; /* Borda lateral verde escuro */
+}
+
+.forecast li:not(:last-child) {
+    margin-bottom: 10px; /* Espaçamento entre os itens */
+}
+
+/* Estilos para mensagens de erro */
+.error {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffcccc; /* Fundo vermelho claro para erros */
+    color: #cc0000; /* Cor do texto de erro */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
